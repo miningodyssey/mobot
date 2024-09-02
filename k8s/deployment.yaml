@@ -25,6 +25,12 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
+          env:
+            - name: BOT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: db-secrets
+                  key: bot_token
           readinessProbe:
             httpGet:
               path: /
