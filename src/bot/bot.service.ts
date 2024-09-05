@@ -1,7 +1,9 @@
 import {Injectable} from '@nestjs/common';
 import {Context, Telegraf} from 'telegraf';
 import * as process from "process";
-import * as i18n from 'i18n';
+import {I18nService} from "nestjs-i18n";
+import {menuMessage} from "../../locales/menuMessage";
+
 
 @Injectable()
 export class BotService {
@@ -20,10 +22,15 @@ export class BotService {
     private setupCommands() {
         this.bot.start(async (ctx) => {
             const languageCode = ctx.from?.language_code || 'en';
-            i18n.setLocale(languageCode);
-
+            const message = () => {
+                if (languageCode == 'ru') {
+                    return menuMessage.welcomemessageru
+                } else {
+                    return menuMessage.welcomemessageen
+                }
+            }
             await ctx.replyWithPhoto('https://gateway.btfs.io/btfs/QmaZMBLAzn5imJZ77mF1TPie6p7gwPsdqS2suhUCepuA42', {
-                caption: i18n.__('welcome_message'),
+                caption: message(),
                 parse_mode: 'MarkdownV2',
                 reply_markup: {
                     inline_keyboard: [
@@ -54,6 +61,6 @@ export class BotService {
                 this.initializeBot();
             }
             this.bot.launch()
-        }, 30000)
+        }, 5000)
     }
 }

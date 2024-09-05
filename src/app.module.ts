@@ -5,7 +5,9 @@ import {BotModule} from "./bot/bot.module";
 import {BotService} from "./bot/bot.service";
 
 @Module({
-  imports: [BotModule],
+    imports: [
+        BotModule
+    ],
   controllers: [AppController],
   providers: [AppService, BotService],
 })
