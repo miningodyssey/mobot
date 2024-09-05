@@ -5,15 +5,15 @@ metadata:
   labels:
     app: mobot
 spec:
-  replicas: 2  # Увеличиваем количество реплик до 3
+  replicas: 1
   selector:
     matchLabels:
       app: mobot
   strategy:
     type: RollingUpdate
     rollingUpdate:
-      maxUnavailable: 0  # Указываем, что все поды должны быть доступны во время обновления
-      maxSurge: 1  # Можно запустить один дополнительный под во время обновления
+      maxUnavailable: 0
+      maxSurge: 0
   template:
     metadata:
       labels:
