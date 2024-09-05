@@ -13,7 +13,7 @@ spec:
     type: RollingUpdate
     rollingUpdate:
       maxUnavailable: 0
-      maxSurge: 0
+      maxSurge: 1
   template:
     metadata:
       labels:
