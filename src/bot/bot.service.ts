@@ -18,7 +18,7 @@ export class BotService {
 
     private setupCommands() {
         this.bot.start(async (ctx) => {
-            await ctx.replyWithPhoto('https://gateway.btfs.io/btfs/QmZV5Gn2r8a1UTEHqBgSkKdnLxedZh5guWg9fyDftiVbCB', {
+            await ctx.replyWithPhoto('https://gateway.btfs.io/btfs/QmaZMBLAzn5imJZ77mF1TPie6p7gwPsdqS2suhUCepuA42', {
                 caption: '👇 Choose an item from the menu',
                 parse_mode: 'MarkdownV2',
                 reply_markup: {
