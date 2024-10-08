@@ -47,6 +47,10 @@ export class BotService {
                                 text: 'FAQ',
                                 url: "https://mining-odyssey.gitbook.io/mining_odyssey",
                             },
+                            {
+                                text: 'Chat',
+                                url: "https://t.me/+kQLC5vQitXsxNTcy",
+                            },
                         ],
                     ],
                 },
